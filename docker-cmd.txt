@@ -1,0 +1,22 @@
+1、启动所有容器
+
+docker start $(docker ps -aq)
+
+2、关闭所有容器
+
+docker stop $(docker ps -aq)
+
+3、删除所有容器
+docker rm $(docker ps -aq)
+
+4、删除所有镜像（慎用）
+
+docker rmi $(docker images -q)
+
+5、删除所有不使用的镜像
+
+docker image prune --force --all 或者 docker image prune -f -a
+
+6、删除所有停止的容器
+
+docker container prune

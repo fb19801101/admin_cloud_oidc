@@ -1,0 +1,24 @@
+server:
+  port: 8888
+
+spring:
+  profiles: dev
+  application:
+    name: eureka-server
+
+# 禁止注册自己
+eureka:
+  instance:
+    #在Eureka中使用IP地址而不是主机名
+#    prefer-ip-address: true
+    hostname: localhost
+#    hostname: 192.168.10.20
+#    hostname: 192.168.100.199
+#    hostname: 192.168.100.197
+#    hostname: ldsc.cr121.com
+#    hostname: ames.cr121.com
+  client:
+    register-with-eureka: false
+    fetch-registry: false
+    serviceUrl:
+      defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka

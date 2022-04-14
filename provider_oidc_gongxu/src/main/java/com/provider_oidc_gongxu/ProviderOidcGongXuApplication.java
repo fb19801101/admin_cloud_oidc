@@ -1,0 +1,15 @@
+package com.provider_oidc_gongxu;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
+
+@SpringBootApplication
+@EnableEurekaClient
+public class ProviderOidcGongXuApplication {
+
+    public static void main(String[] args) {
+        SpringApplication.run(ProviderOidcGongXuApplication.class, args);
+    }
+
+}

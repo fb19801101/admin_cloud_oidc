@@ -1,0 +1,136 @@
+server:
+  port: 9999
+
+spring:
+  profiles: dev
+  application:
+    name: gateway
+  main:
+    allow-bean-definition-overriding: true
+  jmx:
+    enabled: false
+
+  #加载静态资源路径
+  resources:
+    static-locations: classpath:/static/
+
+  #资源路径访问方式
+  mvc:
+#    static-path-pattern: /static/**  #所有访问需要静态资源路径/static/**
+    ignore-default-model-on-redirect: false  #设置Spring 的 redirect 后带参数 不带参数 true
+
+  datasource:
+    url: jdbc:mysql://192.168.100.197:3306/db_oidc?serverTimezone=GMT&useUnicode=true&characterEncoding=utf-8&allowPublicKeyRetrieval=true&useSSL=false
+    username: root_crcc
+    password: crcc_121@root
+#    url: jdbc:mysql://localhost:3306/db_oidc?serverTimezone=GMT&useUnicode=true&characterEncoding=utf-8&allowPublicKeyRetrieval=true&useSSL=false
+#    username: root
+#    password: Dx19800602Fb
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    type: com.zaxxer.hikari.HikariDataSource
+    hikari:
+      maximum-pool-size: 20
+      minimum-idle: 2
+
+  cloud:
+    gateway:
+      routes: #配置路由路径
+        - id: oidc-server-route
+          uri: lb://security-oidc-server
+          predicates:
+            - Path=/api/**
+          filters:
+            - StripPrefix=1
+        - id: oidc-client-route
+          uri: lb://security-oidc-client
+          predicates:
+            - Path=/api/**
+          filters:
+            - StripPrefix=1
+        - id: oidc-ldsc-route
+          uri: lb://consumer-oidc-ldsc
+          predicates:
+            - Path=/oidc-ldsc/**
+          filters:
+            - StripPrefix=1
+        - id: oidc-login-route
+          uri: lb://provider-oidc-login
+          predicates:
+            - Path=/auth-api/**, /static/**
+          filters:
+            - StripPrefix=1
+#            - RewritePath=/static(?<segment>.*), /$\{segment}
+      discovery:
+        locator:
+          #自动映射eureka下的服务路由
+          enabled: true
+          #开启服务名称小写
+          lower-case-service-id: true
+
+      #服务熔断，降级
+      default-filters:
+        - name: Hystrix
+          args:
+            name: fallbackcmd
+            fallbackUri: forward:/fallback
+
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          jwk-set-uri: 'http://localhost:12190/public/jwks' #配置RSA的公钥访问地址
+
+#关联**Mapper.xml 文件
+mybatis:
+  mapper-locations: classpath:com/gateway/mapper/*.xml
+  config-location: classpath:mybatis.cfg.xml
+
+
+#日志配置 无特殊需求无需更改
+logging:
+  config:  classpath:log4j2.xml
+  level:
+    root: INFO
+    javax.activation: INFO
+    org.apache.ibatis: INFO
+    org.apache.catalina: INFO
+    org.apache.commons.beanutils.converters: INFO
+    org.apache.coyote.http11.Http11Processor: INFO
+    org.apache.http: INFO
+    org.apache.tomcat: INFO
+    org.springframework: INFO
+    com.chinamobile.cmss.bdpaas.resource.monitor: DEBUG
+
+#  指定 服务注册中心的地址
+eureka:
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    serviceUrl:
+#      defaultZone: http://localhost:@eureka-port@/eureka/
+#      defaultZone: http://192.168.100.199:@eureka-port@/eureka/
+      defaultZone: http://ldsc.cr121.com:@eureka-port@/eureka/
+
+      # hystrix熔断器，3秒后自动超时
+      hystrix:
+        command:
+          fallbackcmd:
+            execution:
+              isolation:
+                thread:
+                  timeoutInMilliseconds: 3000
+
+secure:
+  ignore:
+    urls: #配置白名单路径
+      - "/actuator/**"
+      - "/auth/oauth/token"
+      - "/security-oidc-server/**"
+      - "/provider-oidc-client/**"
+      - "/consumer-oidc-ldsc/**"
+      - "/provider-oidc-login/**"
+
+application:
+#  host: http://localhost:${server.port}/
+#  host: http://192.168.100.199:${server.port}/
+  host: http://ldsc.cr121.com:${server.port}/

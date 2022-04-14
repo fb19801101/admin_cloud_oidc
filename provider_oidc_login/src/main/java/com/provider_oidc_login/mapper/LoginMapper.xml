@@ -1,0 +1,444 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.provider_oidc_login.mapper.LoginMapper">
+  <resultMap id="BaseResultMap" type="com.provider_oidc_login.entity.Login">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="username" jdbcType="VARCHAR" property="username" />
+    <result column="password" jdbcType="VARCHAR" property="password" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+    <include refid="Model_Clause_Offset" />
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+    <include refid="Model_Clause_Offset" />
+  </sql>
+  <sql id="Model_Where_Clause">
+    <where>
+      <if test="record.id != null">
+        id = #{record.id,jdbcType=INTEGER}
+      </if>
+      <if test="record.name != null">
+        and `name` = #{record.name,jdbcType=VARCHAR}
+      </if>
+      <if test="record.username != null">
+        and username = #{record.username,jdbcType=VARCHAR}
+      </if>
+      <if test="record.password != null">
+        and `password` = #{record.password,jdbcType=VARCHAR}
+      </if>
+    </where>
+    <include refid="Model_Clause_Offset" />
+  </sql>
+  <sql id="Model_Query_Clause">
+    <where>
+      <if test="record.id != null">
+        id like concat('%', #{record.id,jdbcType=INTEGER}, '%')
+      </if>
+      <if test="record.name != null">
+        and `name` like concat('%', #{record.name,jdbcType=VARCHAR}, '%')
+      </if>
+      <if test="record.username != null">
+        and username like concat('%', #{record.username,jdbcType=VARCHAR}, '%')
+      </if>
+      <if test="record.password != null">
+        and `password` like concat('%', #{record.password,jdbcType=VARCHAR}, '%')
+      </if>
+    </where>
+    <include refid="Model_Clause_Offset" />
+  </sql>
+  <sql id="Model_Clause_Offset">
+	  <if test="_parameter != null">
+	    <if test="_parameter.containsKey('limit') and limit != null">
+	      <choose>
+	        <when test="_parameter.containsKey('offset') and offset != null">
+	          order by id asc limit #{offset}, #{limit};
+	        </when>
+	        <otherwise>
+	          order by id asc limit  #{limit};
+	        </otherwise>
+	      </choose>
+	    </if>
+    </if>
+  </sql>
+  <sql id="Model_Clause_Order">
+    <if test="_parameter != null">
+      <choose>
+        <when test="_parameter.containsKey('field') and field != null">
+          order by ${field} asc;
+        </when>
+        <otherwise>
+          order by id asc;
+        </otherwise>
+      </choose>
+    </if>
+  </sql>
+  <sql id="Base_Column_List">
+    id, `name`, username, `password`
+  </sql>
+  <sql id="Param_Column_List">
+    <choose>
+      <when test="_parameter != null">
+        <if test="_parameter.containsKey('fields') and fields != null">
+          ${fields}
+        </if>
+      </when>
+      <otherwise>
+        <include refid="Base_Column_List" />
+      </otherwise>
+    </choose>
+  </sql>
+  <sql id="Param_Where_Clause_Like">
+    <if test="_parameter != null">
+      <if test="_parameter.containsKey('field') and field != null">
+        <where>
+          <if test="_parameter.containsKey('value') and value != null">
+            ${field} like concat('%', #{value}, '%')
+          </if>
+        </where>
+        <if test="_parameter.containsKey('limit') and limit != null">
+          <choose>
+            <when test="_parameter.containsKey('offset') and offset != null">
+              order by ${field} asc limit #{offset}, #{limit};
+            </when>
+            <otherwise>
+              order by ${field} asc limit  #{limit};
+            </otherwise>
+          </choose>
+        </if>
+      </if>
+    </if>
+  </sql>
+  <sql id="Param_Where_Clause_Equal">
+    <if test="_parameter != null">
+      <if test="_parameter.containsKey('field') and field != null">
+        <where>
+          <if test="_parameter.containsKey('value') and value != null">
+            ${field} = #{value}
+          </if>
+          <if test="_parameter.containsKey('value1') and _parameter.containsKey('value2')">
+            <if test="value1 != null and value2 != null">
+              ${field} between #{value1} and #{value2}
+            </if>
+          </if>
+        </where>
+        <if test="_parameter.containsKey('limit') and limit != null">
+          <choose>
+            <when test="_parameter.containsKey('offset') and offset != null">
+              order by ${field} asc limit #{offset}, #{limit};
+            </when>
+            <otherwise>
+              order by ${field} asc limit  #{limit};
+            </otherwise>
+          </choose>
+        </if>
+      </if>
+    </if>
+  </sql>
+  <sql id="Param_Where_Clause_Sql">
+    <where>
+      <choose>
+        <when test="_parameter != null">
+          <if test="_parameter.containsKey('sql') and sql != null">
+            ${sql}
+          </if>
+        </when>
+        <otherwise>
+          id is null
+        </otherwise>
+      </choose>
+    </where>
+    <include refid="Model_Clause_Offset" />
+  </sql>
+  <select id="selectByExample" parameterType="com.provider_oidc_login.entity.LoginExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from tb_login
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+    <if test="limit != null">
+      <if test="offset != null">
+        limit ${offset}, ${limit}
+      </if>
+      <if test="offset == null">
+        limit ${limit}
+      </if>
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from tb_login
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <select id="selectByMinPrimaryKey" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from tb_login
+    where id = (select min(id) from tb_login)
+  </select>
+  <select id="selectByMaxPrimaryKey" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from tb_login
+    where id = (select max(id) from tb_login)
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from tb_login
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.provider_oidc_login.entity.LoginExample">
+    delete from tb_login
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <delete id="deleteAllModel">
+    delete from tb_login
+  </delete>
+  <insert id="insert" keyColumn="id" keyProperty="id" parameterType="com.provider_oidc_login.entity.Login" useGeneratedKeys="true">
+    insert into tb_login (id, `name`, username, `password`)
+    values (#{id,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{username,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="com.provider_oidc_login.entity.Login" useGeneratedKeys="true">
+    insert into tb_login
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="name != null">
+        `name`,
+      </if>
+      <if test="username != null">
+        username,
+      </if>
+      <if test="password != null">
+        `password`,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="name != null">
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="username != null">
+        #{username,jdbcType=VARCHAR},
+      </if>
+      <if test="password != null">
+        #{password,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.provider_oidc_login.entity.LoginExample" resultType="java.lang.Long">
+    select count(*) from tb_login
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <select id="countByModel" parameterType="com.provider_oidc_login.entity.Login" resultType="java.lang.Long">
+    select count(*) from tb_login
+    <if test="_parameter != null">
+      <include refid="Model_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update tb_login
+    <set>
+      <if test="record.id != null">
+        id = #{record.id,jdbcType=INTEGER},
+      </if>
+      <if test="record.name != null">
+        `name` = #{record.name,jdbcType=VARCHAR},
+      </if>
+      <if test="record.username != null">
+        username = #{record.username,jdbcType=VARCHAR},
+      </if>
+      <if test="record.password != null">
+        `password` = #{record.password,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update tb_login
+    set id = #{record.id,jdbcType=INTEGER},
+      `name` = #{record.name,jdbcType=VARCHAR},
+      username = #{record.username,jdbcType=VARCHAR},
+      `password` = #{record.password,jdbcType=VARCHAR}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.provider_oidc_login.entity.Login">
+    update tb_login
+    <set>
+      <if test="name != null">
+        `name` = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="username != null">
+        username = #{username,jdbcType=VARCHAR},
+      </if>
+      <if test="password != null">
+        `password` = #{password,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.provider_oidc_login.entity.Login">
+    update tb_login
+    set `name` = #{name,jdbcType=VARCHAR},
+      username = #{username,jdbcType=VARCHAR},
+      `password` = #{password,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <select id="selectAllModel" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from tb_login
+    <include refid="Model_Clause_Offset" />
+  </select>
+  <select id="countAllModel" resultType="java.lang.Long">
+    select count(*) from tb_login
+  </select>
+  <select id="selectByParam" parameterType="map" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from tb_login
+    <include refid="Model_Where_Clause" />
+  </select>
+  <select id="countBySelectParam" parameterType="map" resultType="java.lang.Long">
+    select count(*) from tb_login
+    <include refid="Model_Where_Clause" />
+  </select>
+  <select id="queryByParam" parameterType="map" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from tb_login
+    <include refid="Model_Query_Clause" />
+  </select>
+  <select id="countByQueryParam" parameterType="map" resultType="java.lang.Long">
+    select count(*) from tb_login
+    <include refid="Model_Query_Clause" />
+  </select>
+  <select id="selectByCondition" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from tb_login
+    <include refid="Param_Where_Clause_Equal" />
+  </select>
+  <select id="countBySelectCondition" resultType="java.lang.Long">
+    select count(*) from tb_login
+    <include refid="Param_Where_Clause_Equal" />
+  </select>
+  <select id="queryByCondition" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from tb_login
+    <include refid="Param_Where_Clause_Like" />
+  </select>
+  <select id="countByQueryCondition" resultType="java.lang.Long">
+    select count(*) from tb_login
+    <include refid="Param_Where_Clause_Like" />
+  </select>
+  <select id="selectFieldsByParam" parameterType="map" resultMap="BaseResultMap">
+    select
+    <include refid="Param_Column_List" />
+    from tb_login
+    <include refid="Model_Where_Clause" />
+  </select>
+  <select id="queryFieldsByParam" parameterType="map" resultMap="BaseResultMap">
+    select
+    <include refid="Param_Column_List" />
+    from tb_login
+    <include refid="Model_Query_Clause" />
+  </select>
+  <select id="selectFieldsByCondition" resultMap="BaseResultMap">
+    select
+    <include refid="Param_Column_List" />
+    from tb_login
+    <include refid="Param_Where_Clause_Equal" />
+  </select>
+  <select id="queryFieldsByCondition" resultMap="BaseResultMap">
+    select
+    <include refid="Param_Column_List" />
+    from tb_login
+    <include refid="Param_Where_Clause_Like" />
+  </select>
+  <select id="selectBySql" resultMap="BaseResultMap" statementType="STATEMENT">
+    select
+    <include refid="Base_Column_List" />
+    from tb_login
+    <include refid="Param_Where_Clause_Sql" />
+  </select>
+  <select id="selectFieldsBySql" resultMap="BaseResultMap" statementType="STATEMENT">
+    select
+    <include refid="Param_Column_List" />
+    from tb_login
+    <include refid="Param_Where_Clause_Sql" />
+  </select>
+</mapper>

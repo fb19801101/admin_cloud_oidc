@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Encoding" defaultCharsetForPropertiesFiles="UTF-8">
+    <file url="file://$PROJECT_DIR$/consumer_oidc_ldsc/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/consumer_oidc_ldsc/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/consumer_oidc_login/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/consumer_oidc_login/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/gateway/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/gateway/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/provider_oidc_dynamicplan/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/provider_oidc_dynamicplan/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/provider_oidc_gangjinchang/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/provider_oidc_gangjinchang/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/provider_oidc_gongcheng/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/provider_oidc_gongcheng/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/provider_oidc_gongchengbm/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/provider_oidc_gongchengbm/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/provider_oidc_gongchengkb/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/provider_oidc_gongchengkb/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/provider_oidc_gongchengsl/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/provider_oidc_gongchengsl/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/provider_oidc_gongchengwbs/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/provider_oidc_gongchengwbs/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/provider_oidc_gongxu/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/provider_oidc_gongxu/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/provider_oidc_hrext/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/provider_oidc_hunningtu/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/provider_oidc_hunningtu/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/provider_oidc_jiliang/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/provider_oidc_jiliang/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/provider_oidc_jingying/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/provider_oidc_jingying/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/provider_oidc_laowu/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/provider_oidc_laowufbs/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/provider_oidc_laowufbs/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/provider_oidc_ldsc/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/provider_oidc_ldsc/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/provider_oidc_login/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/provider_oidc_pingjiafbs/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/provider_oidc_pingjiafbs/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/provider_oidc_shebei/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/provider_oidc_shebei/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/provider_oidc_shebeibm/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/provider_oidc_shebeibm/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/provider_oidc_shebeigys/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/provider_oidc_shebeigys/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/provider_oidc_tuzhi/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/provider_oidc_tuzhi/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/provider_oidc_workplan/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/provider_oidc_workplan/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/provider_oidc_wuzi/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/provider_oidc_wuzi/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/provider_oidc_wuzibm/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/provider_oidc_wuzibm/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/provider_oidc_wuzigys/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/provider_oidc_wuzigys/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/provider_oidc_yangong/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/provider_oidc_yangong/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/register/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/register/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/security_oidc_client/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/security_oidc_client/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/security_oidc_server/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/security_oidc_server/src/main/resources" charset="UTF-8" />
+    <file url="PROJECT" charset="UTF-8" />
+  </component>
+</project>

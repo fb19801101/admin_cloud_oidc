@@ -1,0 +1,144 @@
+POST http://localhost:12199/dev-api/token_holder_init
+
+<> 2021-03-20T081306.500.json
+<> 2021-03-20T081218.500.json
+
+###
+
+GET http://localhost:12199/dev-api/test-users?providerId=hr&deptId=364569
+
+<> 2021-03-20T083735.200.json
+<> 2021-03-20T083711.500.json
+<> 2021-03-20T083636.200.json
+<> 2021-03-20T083634.200.json
+<> 2021-03-20T083633.200.json
+<> 2021-03-20T083630.200.json
+<> 2021-03-20T083605.200.json
+<> 2021-03-20T083530.200.json
+<> 2021-03-20T082919.200.json
+<> 2021-03-20T082629.200.json
+<> 2021-03-20T082445.200.json
+<> 2021-03-20T081750.200.json
+<> 2021-03-20T081342.200.json
+<> 2021-03-20T081319.200.json
+<> 2021-03-20T081218.500.json
+
+###
+
+GET http://localhost:12199/dev-api/test-users?providerId=hr&deptId=364570
+
+<> 2021-03-20T083739.200.json
+<> 2021-03-20T083609.200.json
+<> 2021-03-20T083535.200.json
+<> 2021-03-20T082932.200.json
+<> 2021-03-20T082653.200.json
+<> 2021-03-20T082450.200.json
+<> 2021-03-20T082230.200.json
+<> 2021-03-20T082208.200.json
+<> 2021-03-20T081753.200.json
+<> 2021-03-20T081413.200.json
+<> 2021-03-20T081218.500.json
+
+###
+
+GET http://localhost:12199/dev-api/test-users?providerId=hr&deptId=364571
+
+<> 2021-03-20T083741.200.json
+<> 2021-03-20T083613.200.json
+<> 2021-03-20T083539.200.json
+<> 2021-03-20T082936.200.json
+<> 2021-03-20T082710.200.json
+<> 2021-03-20T082454.200.json
+<> 2021-03-20T082154.200.json
+<> 2021-03-20T081755.200.json
+<> 2021-03-20T081218.500.json
+
+###
+
+GET http://localhost:12199/dev-api/test-users?providerId=hr&deptId=364572
+
+<> 2021-03-20T083743.200.json
+<> 2021-03-20T083616.200.json
+<> 2021-03-20T083542.200.json
+<> 2021-03-20T082940.200.json
+<> 2021-03-20T082738.200.json
+<> 2021-03-20T082710.200.json
+<> 2021-03-20T082454.200.json
+<> 2021-03-20T082154.200.json
+<> 2021-03-20T081755.200.json
+<> 2021-03-20T081218.500.json
+
+###
+
+GET http://localhost:12199/dev-api/test-users?providerId=hr&deptId=364573
+
+<> 2021-03-20T083745.200.json
+<> 2021-03-20T083619.200.json
+<> 2021-03-20T083548.200.json
+<> 2021-03-20T082944.200.json
+<> 2021-03-20T082743.200.json
+<> 2021-03-20T082710.200.json
+<> 2021-03-20T082454.200.json
+<> 2021-03-20T082154.200.json
+<> 2021-03-20T081755.200.json
+<> 2021-03-20T081218.500.json
+
+###
+
+GET http://localhost:12199/dev-api/test-users?providerId=hr&deptId=365265
+
+<> 2021-03-20T083748.200.json
+<> 2021-03-20T083552.200.json
+<> 2021-03-20T082948.200.json
+<> 2021-03-20T082801.200.json
+<> 2021-03-20T082710.200.json
+<> 2021-03-20T082454.200.json
+<> 2021-03-20T082154.200.json
+<> 2021-03-20T081755.200.json
+<> 2021-03-20T081218.500.json
+
+###
+
+GET http://localhost:12199/dev-api/test-organization?providerId=hr&userId=365474
+
+<> 2021-03-20T083750.200.json
+<> 2021-03-20T083726.200.json
+<> 2021-03-20T083625.200.json
+<> 2021-03-20T083623.200.json
+<> 2021-03-20T083600.200.json
+<> 2021-03-20T083524.200.json
+<> 2021-03-20T083437.500.json
+<> 2021-03-20T082956.200.json
+<> 2021-03-20T082906.200.json
+<> 2021-03-20T082517.200.json
+<> 2021-03-20T082500.200.json
+<> 2021-03-20T082433.200.json
+<> 2021-03-20T081757.200.json
+<> 2021-03-20T081746.200.json
+<> 2021-03-20T081718.404.json
+<> 2021-03-20T081701.404.json
+<> 2021-03-20T081218.500.json
+
+###
+GET http://localhost:12199/dev-api/get_company?providerId=hr&orgId=364570
+###
+GET http://localhost:12199/dev-api/get_department?providerId=hr&deptId=364570
+###
+GET http://localhost:12199/dev-api/get_company_children?providerId=hr&orgId=364571
+###
+GET http://localhost:12199/dev-api/get_department_children?providerId=hr&deptId=364571
+###
+GET http://localhost:12199/dev-api/get_company_parent?providerId=hr&orgId=364572
+###
+GET http://localhost:12199/dev-api/get_department_parent?providerId=hr&deptId=364572
+###
+GET http://localhost:12199/dev-api/auth_login?providerId=hr&userId=365483
+###
+GET http://localhost:12199/dev-api/get_organization?providerId=hr&userId=365474&type=true
+###
+GET http://localhost:12199/dev-api/get_company_children?providerId=hr&orgId=986436
+###
+GET http://localhost:12199/dev-api/get_organization_tree?providerId=hr&companyId=986436
+###
+GET http://localhost:12199/dev-api/get_organization_user_tree?providerId=hr&companyId=986436
+###

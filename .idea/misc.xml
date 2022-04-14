@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="FrameworkDetectionExcludesConfiguration">
+    <file type="web" url="file://$PROJECT_DIR$/consumer_curve_element" />
+    <file type="web" url="file://$PROJECT_DIR$/jsp_feign" />
+  </component>
+  <component name="MavenProjectsManager">
+    <option name="originalFiles">
+      <list>
+        <option value="$PROJECT_DIR$/pom.xml" />
+        <option value="$PROJECT_DIR$/register/pom.xml" />
+        <option value="$PROJECT_DIR$/provider/pom.xml" />
+        <option value="$PROJECT_DIR$/provider_other/pom.xml" />
+        <option value="$PROJECT_DIR$/feign/pom.xml" />
+        <option value="$PROJECT_DIR$/provider_curve_element/pom.xml" />
+        <option value="$PROJECT_DIR$/consumer_curve_element/pom.xml" />
+        <option value="$PROJECT_DIR$/jsp_feign/pom.xml" />
+        <option value="$PROJECT_DIR$/consumer_login/pom.xml" />
+        <option value="$PROJECT_DIR$/demo/pom.xml" />
+        <option value="$PROJECT_DIR$/security_sso_auth/pom.xml" />
+        <option value="$PROJECT_DIR$/provider_auth_order/pom.xml" />
+        <option value="$PROJECT_DIR$/provider_auth_code/pom.xml" />
+        <option value="$PROJECT_DIR$/provider_auth_user/pom.xml" />
+        <option value="$PROJECT_DIR$/provider_auth_login/pom.xml" />
+        <option value="$PROJECT_DIR$/security_sso_oidc/pom.xml" />
+        <option value="$PROJECT_DIR$/provider_oidc_client/pom.xml" />
+        <option value="$PROJECT_DIR$/security_oidc_server/pom.xml" />
+        <option value="$PROJECT_DIR$/provider_hr/pom.xml" />
+        <option value="$PROJECT_DIR$/consumer_hr/pom.xml" />
+        <option value="$PROJECT_DIR$/provider_oidc_gongchengbm/pom.xml" />
+        <option value="$PROJECT_DIR$/provider_oidc_gongchengwbs/pom.xml" />
+        <option value="$PROJECT_DIR$/provider_oidc_dynamicplan/pom.xml" />
+        <option value="$PROJECT_DIR$/provider_oidc_gongxu/pom.xml" />
+        <option value="$PROJECT_DIR$/provider_oidc_gongchengsl/pom.xml" />
+        <option value="$PROJECT_DIR$/provider_oidc_gongcheng/pom.xml" />
+        <option value="$PROJECT_DIR$/provider_oidc_jiliang/pom.xml" />
+        <option value="$PROJECT_DIR$/provider_oidc_yangong/pom.xml" />
+        <option value="$PROJECT_DIR$/provider_oidc_gongchengkb/pom.xml" />
+        <option value="$PROJECT_DIR$/provider_oidc_jingying/pom.xml" />
+        <option value="$PROJECT_DIR$/provider_oidc_tuzhi/pom.xml" />
+        <option value="$PROJECT_DIR$/provider_oidc_wuzigys/pom.xml" />
+        <option value="$PROJECT_DIR$/provider_oidc_shebeigys/pom.xml" />
+        <option value="$PROJECT_DIR$/provider_oidc_wuzibm/pom.xml" />
+        <option value="$PROJECT_DIR$/provider_oidc_shebeibm/pom.xml" />
+        <option value="$PROJECT_DIR$/provider_oidc_laowu/pom.xml" />
+        <option value="$PROJECT_DIR$/provider_oidc_shebei/pom.xml" />
+        <option value="$PROJECT_DIR$/provider_oidc_pingjiafbs/pom.xml" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_1_8" default="false" project-jdk-name="1.8" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/out" />
+  </component>
+</project>

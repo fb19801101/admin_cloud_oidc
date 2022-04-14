@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <!--/*@thymesVar id="static_path" type="java.lang.String"*/-->
+    <link rel="shortcut icon" href="../../static/favicon.ico" th:href="@{${static_path}+'/favicon.ico'}"/>
+
+    <title>Error-405 . OIDC[RP]</title>
+
+    <th:block th:include="fragment/header :: public-css"/>
+</head>
+<body>
+
+<div th:replace="fragment/header :: public-header"></div>
+
+<div class="container">
+    <h3>405
+        <small>
+            Method Not Allowed
+        </small>
+    </h3>
+    <div class="alert alert-warning">
+        <a href="#" th:href="@{/}">回主页</a>
+    </div>
+
+
+</div>
+
+
+<hr/>
+<div th:replace="fragment/footer :: footer-oidc"></div>
+</body>
+</html>

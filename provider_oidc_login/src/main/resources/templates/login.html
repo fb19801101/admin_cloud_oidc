@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <!--/*@thymesVar id="static_path" type="java.lang.String"*/-->
+    <link rel="shortcut icon" href="../static/favicon.ico" th:href="@{${static_path}+'/favicon.ico'}"/>
+
+    <title>登录 . OIDC</title>
+
+    <th:block th:include="fragment/header :: public-css"/>
+</head>
+<body>
+<div class="container" style="margin-top: 5%; width: 500px">
+    <div>
+        <!--/*@thymesVar id="static_path" type="java.lang.String"*/-->
+        <img alt="Logo" src="../static/images/openid.png" th:src="@{${static_path}+'/images/openid.png'}" style="max-height: 100px;"/>
+
+        <form th:action="@{/signin}" method="post" class="form-horizontal">
+            <div class="form-group">
+                <label class="col-sm-2 control-label">账号</label>
+                <div class="col-sm-10">
+                    <label>
+                        <input type="text" class="form-control" placeholder="请输入账号" name="oidc_user" required="required" style="width: 300px"/>
+                    </label>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-2 control-label">密码</label>
+                <div class="col-sm-10">
+                    <label>
+                        <input type="password" class="form-control" placeholder="请输入密码" name="oidc_pwd" required="required" style="width: 300px"/>
+                    </label>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-sm-2 control-label"></label>
+                <div class="col-sm-10">
+                    <button type="submit" class="btn btn-primary"><em
+                            class="glyphicon glyphicon-log-in"></em> 登录
+                    </button>
+                    <button type="reset" class="btn btn-primary"><em
+                        class="glyphicon glyphicon-log-in"></em> 重置
+                    </button>
+                    <button type="button" class="btn btn-primary" onclick="register()"><em
+                        class="glyphicon glyphicon-log-in"></em> 注册
+                    </button>
+                    <span class="label label-info" th:if="${param.logout}">退出成功</span>
+                    <span class="label label-danger" th:if="${param.error}">账号或密码错误</span>
+                </div>
+            </div>
+        </form>
+        <div>
+            <small>你可以使用以下几个初始的账号进行登录 (使用<code>admin</code>登录后可添加新账号)</small>
+            <table class="table table-bordered">
+                <thead>
+                <tr>
+                    <th>账号</th>
+                    <th>密码</th>
+                    <th>说明</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>admin</td>
+                    <td>RP_OIDC-2021</td>
+                    <td>初始管理员, 有所有权限</td>
+                </tr>
+                <tr>
+                    <td>unity</td>
+                    <td>RP_OIDC-2021</td>
+                    <td>普通账号, 只有访问资源[UNITY]的权限</td>
+                </tr>
+                <tr>
+                    <td>mobile</td>
+                    <td>RP_OIDC-2021</td>
+                    <td>普通账号, 只有访问资源[MOBILE]的权限</td>
+                </tr>
+                <tr>
+                    <td>crcc</td>
+                    <td>RP_OIDC-2021</td>
+                    <td>普通账号, 只有访问资源[CRCC]的权限</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div th:replace="fragment/footer :: footer-oidc"></div>
+</div>
+
+<script th:inline="javascript">
+    function register() {
+        alert('注册');
+    }
+
+    var requestURL = [[${#httpServletRequest.getRequestURL()}]];
+    var serverScheme = [[${#httpServletRequest.getScheme()}]];
+    var serverName = [[${#httpServletRequest.getServerName()}]];
+    var serverPort = [[${#httpServletRequest.getServerPort()}]];
+    var contextPath = [[${#httpServletRequest.getContextPath()}]];
+
+    console.log(requestURL);
+    console.log(serverScheme+'://'+serverName+':'+serverPort+contextPath)
+
+</script>
+</body>
+</html>

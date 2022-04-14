@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/admin_cloud_oidc.iml" filepath="$PROJECT_DIR$/admin_cloud_oidc.iml" />
+      <module fileurl="file://$PROJECT_DIR$/consumer_oidc_ldsc/consumer_oidc_ldsc.iml" filepath="$PROJECT_DIR$/consumer_oidc_ldsc/consumer_oidc_ldsc.iml" />
+      <module fileurl="file://$PROJECT_DIR$/consumer_oidc_login/consumer_oidc_login.iml" filepath="$PROJECT_DIR$/consumer_oidc_login/consumer_oidc_login.iml" />
+      <module fileurl="file://$PROJECT_DIR$/gateway/gateway.iml" filepath="$PROJECT_DIR$/gateway/gateway.iml" />
+      <module fileurl="file://$PROJECT_DIR$/provider_oidc_dynamicplan/provider_oidc_dynamicplan.iml" filepath="$PROJECT_DIR$/provider_oidc_dynamicplan/provider_oidc_dynamicplan.iml" />
+      <module fileurl="file://$PROJECT_DIR$/provider_oidc_gangjinchang/provider_oidc_gangjinchang.iml" filepath="$PROJECT_DIR$/provider_oidc_gangjinchang/provider_oidc_gangjinchang.iml" />
+      <module fileurl="file://$PROJECT_DIR$/provider_oidc_gongcheng/provider_oidc_gongcheng.iml" filepath="$PROJECT_DIR$/provider_oidc_gongcheng/provider_oidc_gongcheng.iml" />
+      <module fileurl="file://$PROJECT_DIR$/provider_oidc_gongchengbm/provider_oidc_gongchengbm.iml" filepath="$PROJECT_DIR$/provider_oidc_gongchengbm/provider_oidc_gongchengbm.iml" />
+      <module fileurl="file://$PROJECT_DIR$/provider_oidc_gongchengkb/provider_oidc_gongchengkb.iml" filepath="$PROJECT_DIR$/provider_oidc_gongchengkb/provider_oidc_gongchengkb.iml" />
+      <module fileurl="file://$PROJECT_DIR$/provider_oidc_gongchengsl/provider_oidc_gongchengsl.iml" filepath="$PROJECT_DIR$/provider_oidc_gongchengsl/provider_oidc_gongchengsl.iml" />
+      <module fileurl="file://$PROJECT_DIR$/provider_oidc_gongchengwbs/provider_oidc_gongchengwbs.iml" filepath="$PROJECT_DIR$/provider_oidc_gongchengwbs/provider_oidc_gongchengwbs.iml" />
+      <module fileurl="file://$PROJECT_DIR$/provider_oidc_gongxu/provider_oidc_gongxu.iml" filepath="$PROJECT_DIR$/provider_oidc_gongxu/provider_oidc_gongxu.iml" />
+      <module fileurl="file://$PROJECT_DIR$/provider_oidc_hrext/provider_oidc_hrext.iml" filepath="$PROJECT_DIR$/provider_oidc_hrext/provider_oidc_hrext.iml" />
+      <module fileurl="file://$PROJECT_DIR$/provider_oidc_hunningtu/provider_oidc_hunningtu.iml" filepath="$PROJECT_DIR$/provider_oidc_hunningtu/provider_oidc_hunningtu.iml" />
+      <module fileurl="file://$PROJECT_DIR$/provider_oidc_jiliang/provider_oidc_jiliang.iml" filepath="$PROJECT_DIR$/provider_oidc_jiliang/provider_oidc_jiliang.iml" />
+      <module fileurl="file://$PROJECT_DIR$/provider_oidc_jingying/provider_oidc_jingying.iml" filepath="$PROJECT_DIR$/provider_oidc_jingying/provider_oidc_jingying.iml" />
+      <module fileurl="file://$PROJECT_DIR$/provider_oidc_laowu/provider_oidc_laowu.iml" filepath="$PROJECT_DIR$/provider_oidc_laowu/provider_oidc_laowu.iml" />
+      <module fileurl="file://$PROJECT_DIR$/provider_oidc_laowufbs/provider_oidc_laowufbs.iml" filepath="$PROJECT_DIR$/provider_oidc_laowufbs/provider_oidc_laowufbs.iml" />
+      <module fileurl="file://$PROJECT_DIR$/provider_oidc_ldsc/provider_oidc_ldsc.iml" filepath="$PROJECT_DIR$/provider_oidc_ldsc/provider_oidc_ldsc.iml" />
+      <module fileurl="file://$PROJECT_DIR$/provider_oidc_login/provider_oidc_login.iml" filepath="$PROJECT_DIR$/provider_oidc_login/provider_oidc_login.iml" />
+      <module fileurl="file://$PROJECT_DIR$/provider_oidc_pingjiafbs/provider_oidc_pingjiafbs.iml" filepath="$PROJECT_DIR$/provider_oidc_pingjiafbs/provider_oidc_pingjiafbs.iml" />
+      <module fileurl="file://$PROJECT_DIR$/provider_oidc_shebei/provider_oidc_shebei.iml" filepath="$PROJECT_DIR$/provider_oidc_shebei/provider_oidc_shebei.iml" />
+      <module fileurl="file://$PROJECT_DIR$/provider_oidc_shebeibm/provider_oidc_shebeibm.iml" filepath="$PROJECT_DIR$/provider_oidc_shebeibm/provider_oidc_shebeibm.iml" />
+      <module fileurl="file://$PROJECT_DIR$/provider_oidc_shebeigys/provider_oidc_shebeigys.iml" filepath="$PROJECT_DIR$/provider_oidc_shebeigys/provider_oidc_shebeigys.iml" />
+      <module fileurl="file://$PROJECT_DIR$/provider_oidc_tuzhi/provider_oidc_tuzhi.iml" filepath="$PROJECT_DIR$/provider_oidc_tuzhi/provider_oidc_tuzhi.iml" />
+      <module fileurl="file://$PROJECT_DIR$/provider_oidc_workplan/provider_oidc_workplan.iml" filepath="$PROJECT_DIR$/provider_oidc_workplan/provider_oidc_workplan.iml" />
+      <module fileurl="file://$PROJECT_DIR$/provider_oidc_wuzi/provider_oidc_wuzi.iml" filepath="$PROJECT_DIR$/provider_oidc_wuzi/provider_oidc_wuzi.iml" />
+      <module fileurl="file://$PROJECT_DIR$/provider_oidc_wuzibm/provider_oidc_wuzibm.iml" filepath="$PROJECT_DIR$/provider_oidc_wuzibm/provider_oidc_wuzibm.iml" />
+      <module fileurl="file://$PROJECT_DIR$/provider_oidc_wuzigys/provider_oidc_wuzigys.iml" filepath="$PROJECT_DIR$/provider_oidc_wuzigys/provider_oidc_wuzigys.iml" />
+      <module fileurl="file://$PROJECT_DIR$/provider_oidc_yangong/provider_oidc_yangong.iml" filepath="$PROJECT_DIR$/provider_oidc_yangong/provider_oidc_yangong.iml" />
+      <module fileurl="file://$PROJECT_DIR$/register/register.iml" filepath="$PROJECT_DIR$/register/register.iml" />
+      <module fileurl="file://$PROJECT_DIR$/security_oidc_client/security_oidc_client.iml" filepath="$PROJECT_DIR$/security_oidc_client/security_oidc_client.iml" />
+      <module fileurl="file://$PROJECT_DIR$/security_oidc_server/security_oidc_server.iml" filepath="$PROJECT_DIR$/security_oidc_server/security_oidc_server.iml" />
+    </modules>
+  </component>
+</project>

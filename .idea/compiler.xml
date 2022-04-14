@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile default="true" name="Default" enabled="true" />
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="provider_oidc_gangjinchang" />
+        <module name="demo" />
+        <module name="security_oidc_client" />
+        <module name="provider_oidc_wuzibm" />
+        <module name="security_oidc_server" />
+        <module name="provider_oidc_login" />
+        <module name="consumer_oidc_login" />
+        <module name="provider_oidc_gongchengbm" />
+        <module name="provider_oidc_wuzi" />
+        <module name="provider_oidc_hunningtu" />
+        <module name="provider_oidc_shebeibm" />
+        <module name="provider_oidc_shebei" />
+        <module name="provider_oidc_pingjiafbs" />
+        <module name="provider_oidc_laowufbs" />
+        <module name="provider_oidc_gongchengwbs" />
+        <module name="provider_oidc_gongchengsl" />
+        <module name="provider_oidc_gongxu" />
+        <module name="provider_oidc_shebeigys" />
+        <module name="consumer_oidc_ldsc" />
+        <module name="provider_oidc_dynamicplan" />
+        <module name="provider_oidc_hrext" />
+        <module name="provider_oidc_workplan" />
+        <module name="provider_oidc_laowu" />
+        <module name="provider_oidc_gongcheng" />
+        <module name="provider_oidc_wuzigys" />
+        <module name="register" />
+        <module name="provider_oidc_tuzhi" />
+        <module name="provider_oidc_yangong" />
+        <module name="provider_oidc_gongchengkb" />
+        <module name="gateway" />
+        <module name="provider_oidc_jiliang" />
+        <module name="provider_oidc_jingying" />
+        <module name="provider_oidc_ldsc" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="admin_cloud_oidc" target="1.8" />
+      <module name="consumer_curve_element" target="1.8" />
+      <module name="consumer_hr" target="1.8" />
+      <module name="consumer_oidc_ldsc" target="1.8" />
+      <module name="consumer_oidc_login" target="1.8" />
+      <module name="demo" target="1.8" />
+      <module name="feign" target="1.8" />
+      <module name="gateway" target="1.8" />
+      <module name="jsp_feign" target="1.8" />
+      <module name="provider" target="1.8" />
+      <module name="provider_auth_code" target="1.8" />
+      <module name="provider_auth_login" target="1.8" />
+      <module name="provider_auth_order" target="1.8" />
+      <module name="provider_auth_user" target="1.8" />
+      <module name="provider_client" target="1.8" />
+      <module name="provider_curve_element" target="1.8" />
+      <module name="provider_hr" target="1.8" />
+      <module name="provider_oidc_dynamicplan" target="1.8" />
+      <module name="provider_oidc_gangjinchang" target="1.8" />
+      <module name="provider_oidc_gongchen" target="1.8" />
+      <module name="provider_oidc_gongcheng" target="1.8" />
+      <module name="provider_oidc_gongcheng (2)" target="1.8" />
+      <module name="provider_oidc_gongchengbm" target="1.8" />
+      <module name="provider_oidc_gongchengkb" target="1.8" />
+      <module name="provider_oidc_gongchengsl" target="1.8" />
+      <module name="provider_oidc_gongchengwbs" target="1.8" />
+      <module name="provider_oidc_gongxu" target="1.8" />
+      <module name="provider_oidc_hrext" target="1.8" />
+      <module name="provider_oidc_hrext (1)" target="1.8" />
+      <module name="provider_oidc_hunningtu" target="1.8" />
+      <module name="provider_oidc_jiliang" target="1.8" />
+      <module name="provider_oidc_jingying" target="1.8" />
+      <module name="provider_oidc_laowu" target="1.8" />
+      <module name="provider_oidc_laowufbs" target="1.8" />
+      <module name="provider_oidc_ldsc" target="1.8" />
+      <module name="provider_oidc_login" target="1.8" />
+      <module name="provider_oidc_pingjiafbs" target="1.8" />
+      <module name="provider_oidc_shebei" target="1.8" />
+      <module name="provider_oidc_shebeibm" target="1.8" />
+      <module name="provider_oidc_shebeigys" target="1.8" />
+      <module name="provider_oidc_tuzhi" target="1.8" />
+      <module name="provider_oidc_workplan" target="1.8" />
+      <module name="provider_oidc_wuzi" target="1.8" />
+      <module name="provider_oidc_wuzibm" target="1.8" />
+      <module name="provider_oidc_wuzigys" target="1.8" />
+      <module name="provider_oidc_yangong" target="1.8" />
+      <module name="provider_other" target="1.8" />
+      <module name="register" target="1.8" />
+      <module name="ribbon" target="1.8" />
+      <module name="security_oidc_client" target="1.8" />
+      <module name="security_oidc_server" target="1.8" />
+      <module name="security_server" target="1.8" />
+      <module name="security_sso_auth" target="1.8" />
+    </bytecodeTargetLevel>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="admin_cloud_oidc" options="" />
+      <module name="consumer_curve_element" options="-parameters" />
+      <module name="consumer_hr" options="-parameters" />
+      <module name="consumer_oidc_ldsc" options="-parameters" />
+      <module name="consumer_oidc_login" options="-parameters" />
+      <module name="demo" options="-parameters" />
+      <module name="feign" options="-parameters" />
+      <module name="gateway" options="-parameters" />
+      <module name="jsp_feign" options="-parameters" />
+      <module name="provider" options="-parameters" />
+      <module name="provider_auth_code" options="-parameters" />
+      <module name="provider_auth_login" options="-parameters" />
+      <module name="provider_auth_order" options="-parameters" />
+      <module name="provider_auth_user" options="-parameters" />
+      <module name="provider_client" options="-parameters" />
+      <module name="provider_curve_element" options="-parameters" />
+      <module name="provider_hr" options="-parameters" />
+      <module name="provider_oidc_dynamicplan" options="-parameters" />
+      <module name="provider_oidc_gangjinchang" options="-parameters" />
+      <module name="provider_oidc_gongchen" options="-parameters" />
+      <module name="provider_oidc_gongcheng" options="-parameters" />
+      <module name="provider_oidc_gongcheng (2)" options="-parameters" />
+      <module name="provider_oidc_gongchengbm" options="-parameters" />
+      <module name="provider_oidc_gongchengkb" options="-parameters" />
+      <module name="provider_oidc_gongchengsl" options="-parameters" />
+      <module name="provider_oidc_gongchengwbs" options="-parameters" />
+      <module name="provider_oidc_gongxu" options="-parameters" />
+      <module name="provider_oidc_hrext" options="-parameters" />
+      <module name="provider_oidc_hrext (1)" options="-parameters" />
+      <module name="provider_oidc_hunningtu" options="-parameters" />
+      <module name="provider_oidc_jiliang" options="-parameters" />
+      <module name="provider_oidc_jingying" options="-parameters" />
+      <module name="provider_oidc_laowu" options="-parameters" />
+      <module name="provider_oidc_laowufbs" options="-parameters" />
+      <module name="provider_oidc_ldsc" options="-parameters" />
+      <module name="provider_oidc_login" options="-parameters" />
+      <module name="provider_oidc_pingjiafbs" options="-parameters" />
+      <module name="provider_oidc_shebei" options="-parameters" />
+      <module name="provider_oidc_shebeibm" options="-parameters" />
+      <module name="provider_oidc_shebeigys" options="-parameters" />
+      <module name="provider_oidc_tuzhi" options="-parameters" />
+      <module name="provider_oidc_workplan" options="-parameters" />
+      <module name="provider_oidc_wuzi" options="-parameters" />
+      <module name="provider_oidc_wuzibm" options="-parameters" />
+      <module name="provider_oidc_wuzigys" options="-parameters" />
+      <module name="provider_oidc_yangong" options="-parameters" />
+      <module name="provider_other" options="-parameters" />
+      <module name="register" options="-parameters" />
+      <module name="ribbon" options="-parameters" />
+      <module name="security_oidc_client" options="-parameters" />
+      <module name="security_oidc_server" options="-parameters" />
+      <module name="security_server" options="-parameters" />
+      <module name="security_sso_auth" options="-parameters" />
+    </option>
+  </component>
+</project>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Fragment Header</title>
+
+
+    <div th:fragment="public-css">
+        <!--/*@thymesVar id="static_path" type="java.lang.String"*/-->
+        <link rel="stylesheet" href="../../static/bootstrap/css/bootstrap.min.css"
+              th:href="@{${static_path}+'/bootstrap/css/bootstrap.min.css'}"/>
+    </div>
+
+    <div th:fragment="public-js">
+        <!--/*@thymesVar id="static_path" type="java.lang.String"*/-->
+        <script src="../../static/angular.min.js"
+                th:src="@{${static_path}+'/angular.min.js'}"></script>
+    </div>
+
+</head>
+<body>
+
+<div th:fragment="public-header">
+    <nav class="navbar navbar-default navbar-static-top">
+        <div class="container">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="" th:href="@{/}">OIDC-Client[RP]</a>
+            </div>
+
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                    <li><a href="" th:href="@{/}">首页</a></li>
+                    <!--<li sec:authorize="hasRole('ROLE_ADMIN')"><a href="" th:href="@{/admin/users}">User</a></li>-->
+                </ul>
+            </div>
+        </div>
+    </nav>
+</div>
+
+</body>
+</html>

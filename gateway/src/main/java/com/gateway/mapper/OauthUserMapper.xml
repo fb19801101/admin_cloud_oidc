@@ -1,0 +1,624 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gateway.mapper.OauthUserMapper">
+  <resultMap id="BaseResultMap" type="com.gateway.entity.OauthUser">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="uuid" jdbcType="VARCHAR" property="uuid" />
+    <result column="archived" jdbcType="BIT" property="archived" />
+    <result column="version" jdbcType="INTEGER" property="version" />
+    <result column="username" jdbcType="VARCHAR" property="username" />
+    <result column="password" jdbcType="VARCHAR" property="password" />
+    <result column="phone" jdbcType="VARCHAR" property="phone" />
+    <result column="email" jdbcType="VARCHAR" property="email" />
+    <result column="default_user" jdbcType="BIT" property="defaultUser" />
+    <result column="creator_id" jdbcType="INTEGER" property="creatorId" />
+    <result column="last_login_time" jdbcType="TIMESTAMP" property="lastLoginTime" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+  </resultMap>
+  <resultMap id="BaseResultMapExtends" type="com.gateway.entity.OauthUser" extends="BaseResultMap">
+    <collection property="oauthUserPrivileges" javaType="ArrayList"
+      ofType="com.gateway.entity.OauthUserPrivilege" column="{userId=user_id}" select="com.gateway.mapper.OauthUserPrivilegeMapper.queryByUserId">
+    </collection>
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+    <include refid="Model_Clause_Offset" />
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+    <include refid="Model_Clause_Offset" />
+  </sql>
+  <sql id="Model_Where_Clause">
+    <where>
+      <if test="record.id != null">
+        id = #{record.id,jdbcType=INTEGER}
+      </if>
+      <if test="record.uuid != null">
+        and uuid = #{record.uuid,jdbcType=VARCHAR}
+      </if>
+      <if test="record.archived != null">
+        and archived = #{record.archived,jdbcType=BIT}
+      </if>
+      <if test="record.version != null">
+        and version = #{record.version,jdbcType=INTEGER}
+      </if>
+      <if test="record.username != null">
+        and username = #{record.username,jdbcType=VARCHAR}
+      </if>
+      <if test="record.password != null">
+        and `password` = #{record.password,jdbcType=VARCHAR}
+      </if>
+      <if test="record.phone != null">
+        and phone = #{record.phone,jdbcType=VARCHAR}
+      </if>
+      <if test="record.email != null">
+        and email = #{record.email,jdbcType=VARCHAR}
+      </if>
+      <if test="record.defaultUser != null">
+        and default_user = #{record.defaultUser,jdbcType=BIT}
+      </if>
+      <if test="record.creatorId != null">
+        and creator_id = #{record.creatorId,jdbcType=INTEGER}
+      </if>
+      <if test="record.lastLoginTime != null">
+        and last_login_time = #{record.lastLoginTime,jdbcType=TIMESTAMP}
+      </if>
+      <if test="record.createTime != null">
+        and create_time = #{record.createTime,jdbcType=TIMESTAMP}
+      </if>
+    </where>
+    <include refid="Model_Clause_Offset" />
+  </sql>
+  <sql id="Model_Query_Clause">
+    <where>
+      <if test="record.id != null">
+        id like concat('%', #{record.id,jdbcType=INTEGER}, '%')
+      </if>
+      <if test="record.uuid != null">
+        and uuid like concat('%', #{record.uuid,jdbcType=VARCHAR}, '%')
+      </if>
+      <if test="record.archived != null">
+        and archived like concat('%', #{record.archived,jdbcType=BIT}, '%')
+      </if>
+      <if test="record.version != null">
+        and version like concat('%', #{record.version,jdbcType=INTEGER}, '%')
+      </if>
+      <if test="record.username != null">
+        and username like concat('%', #{record.username,jdbcType=VARCHAR}, '%')
+      </if>
+      <if test="record.password != null">
+        and `password` like concat('%', #{record.password,jdbcType=VARCHAR}, '%')
+      </if>
+      <if test="record.phone != null">
+        and phone like concat('%', #{record.phone,jdbcType=VARCHAR}, '%')
+      </if>
+      <if test="record.email != null">
+        and email like concat('%', #{record.email,jdbcType=VARCHAR}, '%')
+      </if>
+      <if test="record.defaultUser != null">
+        and default_user like concat('%', #{record.defaultUser,jdbcType=BIT}, '%')
+      </if>
+      <if test="record.creatorId != null">
+        and creator_id like concat('%', #{record.creatorId,jdbcType=INTEGER}, '%')
+      </if>
+      <if test="record.lastLoginTime != null">
+        and last_login_time like concat('%', #{record.lastLoginTime,jdbcType=TIMESTAMP}, '%')
+      </if>
+      <if test="record.createTime != null">
+        and create_time like concat('%', #{record.createTime,jdbcType=TIMESTAMP}, '%')
+      </if>
+    </where>
+    <include refid="Model_Clause_Offset" />
+  </sql>
+  <sql id="Model_Clause_Offset">
+	  <if test="_parameter != null">
+	    <if test="_parameter.containsKey('limit') and limit != null">
+	      <choose>
+	        <when test="_parameter.containsKey('offset') and offset != null">
+	          order by id asc limit #{offset}, #{limit};
+	        </when>
+	        <otherwise>
+	          order by id asc limit  #{limit};
+	        </otherwise>
+	      </choose>
+	    </if>
+    </if>
+  </sql>
+  <sql id="Model_Clause_Order">
+    <if test="_parameter != null">
+      <choose>
+        <when test="_parameter.containsKey('field') and field != null">
+          order by ${field} asc;
+        </when>
+        <otherwise>
+          order by id asc;
+        </otherwise>
+      </choose>
+    </if>
+  </sql>
+  <sql id="Base_Column_List">
+    id, uuid, archived, version, username, `password`, phone, email, default_user, creator_id,
+    last_login_time, create_time
+  </sql>
+  <sql id="Param_Column_List">
+    <choose>
+      <when test="_parameter != null">
+        <if test="_parameter.containsKey('fields') and fields != null">
+          ${fields}
+        </if>
+      </when>
+      <otherwise>
+        <include refid="Base_Column_List" />
+      </otherwise>
+    </choose>
+  </sql>
+  <sql id="Param_Where_Clause_Like">
+    <if test="_parameter != null">
+      <if test="_parameter.containsKey('field') and field != null">
+        <where>
+          <if test="_parameter.containsKey('value') and value != null">
+            ${field} like concat('%', #{value}, '%')
+          </if>
+        </where>
+        <if test="_parameter.containsKey('limit') and limit != null">
+          <choose>
+            <when test="_parameter.containsKey('offset') and offset != null">
+              order by ${field} asc limit #{offset}, #{limit};
+            </when>
+            <otherwise>
+              order by ${field} asc limit  #{limit};
+            </otherwise>
+          </choose>
+        </if>
+      </if>
+    </if>
+  </sql>
+  <sql id="Param_Where_Clause_Equal">
+    <if test="_parameter != null">
+      <if test="_parameter.containsKey('field') and field != null">
+        <where>
+          <if test="_parameter.containsKey('value') and value != null">
+            ${field} = #{value}
+          </if>
+          <if test="_parameter.containsKey('value1') and _parameter.containsKey('value2')">
+            <if test="value1 != null and value2 != null">
+              ${field} between #{value1} and #{value2}
+            </if>
+          </if>
+        </where>
+        <if test="_parameter.containsKey('limit') and limit != null">
+          <choose>
+            <when test="_parameter.containsKey('offset') and offset != null">
+              order by ${field} asc limit #{offset}, #{limit};
+            </when>
+            <otherwise>
+              order by ${field} asc limit  #{limit};
+            </otherwise>
+          </choose>
+        </if>
+      </if>
+    </if>
+  </sql>
+  <sql id="Param_Where_Clause_Sql">
+    <where>
+      <choose>
+        <when test="_parameter != null">
+          <if test="_parameter.containsKey('sql') and sql != null">
+            ${sql}
+          </if>
+        </when>
+        <otherwise>
+          id is null
+        </otherwise>
+      </choose>
+    </where>
+    <include refid="Model_Clause_Offset" />
+  </sql>
+  <select id="selectByExample" parameterType="com.gateway.entity.OauthUserExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from oauth_user
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+    <if test="limit != null">
+      <if test="offset != null">
+        limit ${offset}, ${limit}
+      </if>
+      <if test="offset == null">
+        limit ${limit}
+      </if>
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMapExtends">
+    select 
+    <include refid="Base_Column_List" />
+    from oauth_user
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <select id="selectByMinPrimaryKey" resultMap="BaseResultMapExtends">
+    select
+    <include refid="Base_Column_List" />
+    from oauth_user
+    where id = (select min(id) from oauth_user)
+  </select>
+  <select id="selectByMaxPrimaryKey" resultMap="BaseResultMapExtends">
+    select
+    <include refid="Base_Column_List" />
+    from oauth_user
+    where id = (select max(id) from oauth_user)
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from oauth_user
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.gateway.entity.OauthUserExample">
+    delete from oauth_user
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <delete id="deleteAllModel">
+    delete from oauth_user
+  </delete>
+  <insert id="insert" keyColumn="id" keyProperty="id" parameterType="com.gateway.entity.OauthUser" useGeneratedKeys="true">
+    insert into oauth_user (id, uuid, archived, version,
+      username, `password`, phone, 
+      email, default_user, creator_id, 
+      last_login_time, create_time)
+    values (#{id,jdbcType=INTEGER}, #{uuid,jdbcType=VARCHAR}, #{archived,jdbcType=BIT}, #{version,jdbcType=INTEGER},
+      #{username,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR}, #{phone,jdbcType=VARCHAR}, 
+      #{email,jdbcType=VARCHAR}, #{defaultUser,jdbcType=BIT}, #{creatorId,jdbcType=INTEGER}, 
+      #{lastLoginTime,jdbcType=TIMESTAMP}, #{createTime,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="com.gateway.entity.OauthUser" useGeneratedKeys="true">
+    insert into oauth_user
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="uuid != null">
+        uuid,
+      </if>
+      <if test="archived != null">
+        archived,
+      </if>
+      <if test="version != null">
+        version,
+      </if>
+      <if test="username != null">
+        username,
+      </if>
+      <if test="password != null">
+        `password`,
+      </if>
+      <if test="phone != null">
+        phone,
+      </if>
+      <if test="email != null">
+        email,
+      </if>
+      <if test="defaultUser != null">
+        default_user,
+      </if>
+      <if test="creatorId != null">
+        creator_id,
+      </if>
+      <if test="lastLoginTime != null">
+        last_login_time,
+      </if>
+      <if test="createTime != null">
+        create_time,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="uuid != null">
+        #{uuid,jdbcType=VARCHAR},
+      </if>
+      <if test="archived != null">
+        #{archived,jdbcType=BIT},
+      </if>
+      <if test="version != null">
+        #{version,jdbcType=INTEGER},
+      </if>
+      <if test="username != null">
+        #{username,jdbcType=VARCHAR},
+      </if>
+      <if test="password != null">
+        #{password,jdbcType=VARCHAR},
+      </if>
+      <if test="phone != null">
+        #{phone,jdbcType=VARCHAR},
+      </if>
+      <if test="email != null">
+        #{email,jdbcType=VARCHAR},
+      </if>
+      <if test="defaultUser != null">
+        #{defaultUser,jdbcType=BIT},
+      </if>
+      <if test="creatorId != null">
+        #{creatorId,jdbcType=INTEGER},
+      </if>
+      <if test="lastLoginTime != null">
+        #{lastLoginTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.gateway.entity.OauthUserExample" resultType="java.lang.Long">
+    select count(*) from oauth_user
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <select id="countByModel" parameterType="com.gateway.entity.OauthUser" resultType="java.lang.Long">
+    select count(*) from oauth_user
+    <if test="_parameter != null">
+      <include refid="Model_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update oauth_user
+    <set>
+      <if test="record.id != null">
+        id = #{record.id,jdbcType=INTEGER},
+      </if>
+      <if test="record.uuid != null">
+        uuid = #{record.uuid,jdbcType=VARCHAR},
+      </if>
+      <if test="record.archived != null">
+        archived = #{record.archived,jdbcType=BIT},
+      </if>
+      <if test="record.version != null">
+        version = #{record.version,jdbcType=INTEGER},
+      </if>
+      <if test="record.username != null">
+        username = #{record.username,jdbcType=VARCHAR},
+      </if>
+      <if test="record.password != null">
+        `password` = #{record.password,jdbcType=VARCHAR},
+      </if>
+      <if test="record.phone != null">
+        phone = #{record.phone,jdbcType=VARCHAR},
+      </if>
+      <if test="record.email != null">
+        email = #{record.email,jdbcType=VARCHAR},
+      </if>
+      <if test="record.defaultUser != null">
+        default_user = #{record.defaultUser,jdbcType=BIT},
+      </if>
+      <if test="record.creatorId != null">
+        creator_id = #{record.creatorId,jdbcType=INTEGER},
+      </if>
+      <if test="record.lastLoginTime != null">
+        last_login_time = #{record.lastLoginTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.createTime != null">
+        create_time = #{record.createTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update oauth_user
+    set id = #{record.id,jdbcType=INTEGER},
+      uuid = #{record.uuid,jdbcType=VARCHAR},
+      archived = #{record.archived,jdbcType=BIT},
+      version = #{record.version,jdbcType=INTEGER},
+      username = #{record.username,jdbcType=VARCHAR},
+      `password` = #{record.password,jdbcType=VARCHAR},
+      phone = #{record.phone,jdbcType=VARCHAR},
+      email = #{record.email,jdbcType=VARCHAR},
+      default_user = #{record.defaultUser,jdbcType=BIT},
+      creator_id = #{record.creatorId,jdbcType=INTEGER},
+      last_login_time = #{record.lastLoginTime,jdbcType=TIMESTAMP},
+      create_time = #{record.createTime,jdbcType=TIMESTAMP}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.gateway.entity.OauthUser">
+    update oauth_user
+    <set>
+      <if test="uuid != null">
+        uuid = #{uuid,jdbcType=VARCHAR},
+      </if>
+      <if test="archived != null">
+        archived = #{archived,jdbcType=BIT},
+      </if>
+      <if test="version != null">
+        version = #{version,jdbcType=INTEGER},
+      </if>
+      <if test="username != null">
+        username = #{username,jdbcType=VARCHAR},
+      </if>
+      <if test="password != null">
+        `password` = #{password,jdbcType=VARCHAR},
+      </if>
+      <if test="phone != null">
+        phone = #{phone,jdbcType=VARCHAR},
+      </if>
+      <if test="email != null">
+        email = #{email,jdbcType=VARCHAR},
+      </if>
+      <if test="defaultUser != null">
+        default_user = #{defaultUser,jdbcType=BIT},
+      </if>
+      <if test="creatorId != null">
+        creator_id = #{creatorId,jdbcType=INTEGER},
+      </if>
+      <if test="lastLoginTime != null">
+        last_login_time = #{lastLoginTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createTime != null">
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.gateway.entity.OauthUser">
+    update oauth_user
+    set uuid = #{uuid,jdbcType=VARCHAR},
+      archived = #{archived,jdbcType=BIT},
+      version = #{version,jdbcType=INTEGER},
+      username = #{username,jdbcType=VARCHAR},
+      `password` = #{password,jdbcType=VARCHAR},
+      phone = #{phone,jdbcType=VARCHAR},
+      email = #{email,jdbcType=VARCHAR},
+      default_user = #{defaultUser,jdbcType=BIT},
+      creator_id = #{creatorId,jdbcType=INTEGER},
+      last_login_time = #{lastLoginTime,jdbcType=TIMESTAMP},
+      create_time = #{createTime,jdbcType=TIMESTAMP}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <select id="selectAllModel" resultMap="BaseResultMapExtends">
+    select
+    <include refid="Base_Column_List" />
+    from oauth_user
+    <include refid="Model_Clause_Offset" />
+  </select>
+  <select id="countAllModel" resultType="java.lang.Long">
+    select count(*) from oauth_user
+  </select>
+  <select id="selectByParam" parameterType="map" resultMap="BaseResultMapExtends">
+    select
+    <include refid="Base_Column_List" />
+    from oauth_user
+    <include refid="Model_Where_Clause" />
+  </select>
+  <select id="countBySelectParam" parameterType="map" resultType="java.lang.Long">
+    select count(*) from oauth_user
+    <include refid="Model_Where_Clause" />
+  </select>
+  <select id="queryByParam" parameterType="map" resultMap="BaseResultMapExtends">
+    select
+    <include refid="Base_Column_List" />
+    from oauth_user
+    <include refid="Model_Query_Clause" />
+  </select>
+  <select id="countByQueryParam" parameterType="map" resultType="java.lang.Long">
+    select count(*) from oauth_user
+    <include refid="Model_Query_Clause" />
+  </select>
+  <select id="selectByCondition" resultMap="BaseResultMapExtends">
+    select
+    <include refid="Base_Column_List" />
+    from oauth_user
+    <include refid="Param_Where_Clause_Equal" />
+  </select>
+  <select id="countBySelectCondition" resultType="java.lang.Long">
+    select count(*) from oauth_user
+    <include refid="Param_Where_Clause_Equal" />
+  </select>
+  <select id="queryByCondition" resultMap="BaseResultMapExtends">
+    select
+    <include refid="Base_Column_List" />
+    from oauth_user
+    <include refid="Param_Where_Clause_Like" />
+  </select>
+  <select id="countByQueryCondition" resultType="java.lang.Long">
+    select count(*) from oauth_user
+    <include refid="Param_Where_Clause_Like" />
+  </select>
+  <select id="selectFieldsByParam" parameterType="map" resultMap="BaseResultMap">
+    select
+    <include refid="Param_Column_List" />
+    from oauth_user
+    <include refid="Model_Where_Clause" />
+  </select>
+  <select id="queryFieldsByParam" parameterType="map" resultMap="BaseResultMap">
+    select
+    <include refid="Param_Column_List" />
+    from oauth_user
+    <include refid="Model_Query_Clause" />
+  </select>
+  <select id="selectFieldsByCondition" resultMap="BaseResultMap">
+    select
+    <include refid="Param_Column_List" />
+    from oauth_user
+    <include refid="Param_Where_Clause_Equal" />
+  </select>
+  <select id="queryFieldsByCondition" resultMap="BaseResultMap">
+    select
+    <include refid="Param_Column_List" />
+    from oauth_user
+    <include refid="Param_Where_Clause_Like" />
+  </select>
+  <select id="selectBySql" resultMap="BaseResultMap" statementType="STATEMENT">
+    select
+    <include refid="Base_Column_List" />
+    from oauth_user
+    <include refid="Param_Where_Clause_Sql" />
+  </select>
+  <select id="selectFieldsBySql" resultMap="BaseResultMap" statementType="STATEMENT">
+    select
+    <include refid="Param_Column_List" />
+    from oauth_user
+    <include refid="Param_Where_Clause_Sql" />
+  </select>
+</mapper>

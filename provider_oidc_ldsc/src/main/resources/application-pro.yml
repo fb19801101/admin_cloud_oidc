@@ -1,0 +1,138 @@
+server:
+  port: 12199
+
+  tomcat:
+    accesslog:
+      enabled: true
+    uri-encoding: UTF-8
+
+  # gzip, compression
+  compression:
+    enabled: true
+    mime-types: application/json,application/xml,text/html,text/xml,text/plain
+    min-response-size: 1024
+  servlet:
+    encoding:
+      charset: UTF-8
+      force: true
+      enabled: true
+
+spring:
+  profiles: pro
+  application:
+    name: provider-oidc-ldsc
+  main:
+    allow-bean-definition-overriding: true
+  jmx:
+    enabled: false
+
+  #加载静态资源路径
+  resources:
+    static-locations: classpath:/static/
+
+  #资源路径访问方式
+  mvc:
+    #    static-path-pattern: /static/**  #所有访问需要静态资源路径/static/**
+    ignore-default-model-on-redirect: false  #设置Spring 的 redirect 后带参数 不带参数 true
+
+  #thymeleaf
+  thymeleaf:
+    encoding: UTF-8
+    cache: false
+    prefix: classpath:/templates/
+
+  datasource:
+#    driver-class-name: com.mysql.cj.jdbc.Driver
+#    url: jdbc:mysql://192.168.100.197:3306/db_oidc?serverTimezone=GMT&useUnicode=true&characterEncoding=utf-8&allowPublicKeyRetrieval=true&useSSL=false
+#    username: root_crcc
+#    password: crcc_121@root
+#    url: jdbc:mysql://localhost:3306/db_oidc?serverTimezone=GMT&useUnicode=true&characterEncoding=utf-8&allowPublicKeyRetrieval=true&useSSL=false
+#    username: root
+#    password: Dx19800602Fb
+    driver-class-name: oracle.jdbc.driver.OracleDriver
+#    url: jdbc:oracle:thin:@//localhost:1521/orclpdb
+    url: jdbc:oracle:thin:@//192.168.100.198:1521/orclpdb
+#    url: jdbc:oracle:thin:@//http://ldsc.cr121.com:1521/orclpdb
+#    url: jdbc:oracle:thin:@//http://ames.cr121.com:1521/orclpdb
+    username: oidc_demo
+    password: Dx19800602Fb
+    type: com.zaxxer.hikari.HikariDataSource
+    hikari:
+      maximum-pool-size: 20
+      minimum-idle: 2
+
+
+  http-client:
+    pool:
+      #连接池的最大连接数，0代表不限；如果取0，需要考虑连接泄露导致系统崩溃的后果
+      maxTotalConnect: 1000
+      #每个路由的最大连接数,如果只调用一个地址,可以将其设置为最大连接数
+      maxConnectPerRoute: 200
+      # 指客户端和服务器建立连接的超时时间,ms , 最大约21秒,因为内部tcp在进行三次握手建立连接时,默认tcp超时时间是20秒
+      connectTimeout: 10000
+      # 指客户端从服务器读取数据包的间隔超时时间,不是总读取时间,也就是socket timeout,ms
+      readTimeout: 5000
+      # 从连接池获取连接的timeout,不宜过大,ms
+      connectionRequestTimeout: 200
+      # 服务器返回数据(response)的时间，超过抛出 read timeout
+      socketTimeout: 5000
+      # 重试次数
+      retryTimes: 3
+      # 连接池编码
+      charset: UTF-8
+      # 长连接保持时间 单位s,不宜过长
+      keepAliveTime: 10
+      # 配置请求目标地址长连接保持时间
+      keepAliveTargetHost:
+#        localhost: 5
+#        192.168.10.20: 5
+#        192.168.100.199: 5
+#        192.168.100.197: 5
+#        ldsc.cr121.com: 5
+        ames.cr121.com: 5
+#        hrapitest.crcc.cn: 5
+        api01.crcc.cn: 5
+      # 设置长连接保持时间
+      ValidateAfterInactivity: 10000
+      async: false
+
+logging:
+  level:
+    root=INFO:
+
+#  指定 服务注册中心的地址
+eureka:
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    serviceUrl:
+#      defaultZone: http://localhost:@eureka-port@/eureka/
+#      defaultZone: http://192.168.10.20:@eureka-port@/eureka/
+#      defaultZone: http://192.168.100.199:@eureka-port@/eureka/
+#      defaultZone: http://192.168.100.197:@eureka-port@/eureka/
+#      defaultZone: http://ldsc.cr121.com:@eureka-port@/eureka/
+      defaultZone: http://ames.cr121.com:@eureka-port@/eureka/
+
+application:
+#  host: http://localhost:${server.port}/
+#  host: http://192.168.10.20:${server.port}/
+#  host: http://192.168.100.199:${server.port}/
+#  host: http://192.168.100.197:${server.port}/
+#  host: http://ldsc.cr121.com:${server.port}/
+  host: http://ames.cr121.com:${server.port}/
+#  openid-config-url: https://g1openid.crcc.cn/.well-known/openid-configuration
+  openid-config-url: https://sso.crcc.cn/.well-known/openid-configuration
+#  openid-logout-url: https://g1openid.crcc.cn/logout
+  openid-logout-url: https://sso.crcc.cn/logout
+#  reg-api-url: https://regtest.crcc.cn/
+  reg-api-url: https://reg.crcc.cn/
+#  hr-api-url: https://hrapitest.crcc.cn/api/hr/
+  hr-api-url: https://api01.crcc.cn/api/hr/
+#  mh-certs-url: http://36.112.135.164:8099/discovery/certs
+  mh-certs-url: https://mh.crcc.cn/discovery/certs
+#  mh-certs-kid: 615855be-613c-4f9e-868f-749337f323c4
+  mh-certs-kid: c60269a0-4109-4c56-9943-cf5095499737
+#  reg-certs-url: https://regtest.crcc.cn/discovery/certs
+  reg-certs-url: https://reg.crcc.cn/discovery/certs
+#  reg-certs-kid: b8fd74c8-acbc-4778-afa9-7564daeea73f
+  reg-certs-kid: a91e5f53-84f1-499d-beaf-ed89862dcb42
